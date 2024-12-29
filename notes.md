@@ -421,3 +421,17 @@ Unmerged paths:
 so when manual fixing the file we jsut have to delete the portion of the code that we don't want and then all the arrows, then we'll just git add the modified file and commit it.
 
 just like this we have manually merged conflicts.
+
+
+## rename a branch
+
+```
+git branch -m master main
+```
+
+## delete a branch
+
+```
+git branch -d <branch-name>
+```
+
