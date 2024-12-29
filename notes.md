@@ -215,6 +215,8 @@ git log --online
 
 ! these small options like "--oneline" are called flags in git.
 
+! if lag occurs press q to exit.
+
 ## Change existing code editor 
 
 ```
@@ -298,3 +300,86 @@ function clicked(){
 }
 ```
 
+
+# Branches in git 
+
+Can be termed as alternate timeline.
+Branches are a way to work on different versions of a project at the same time. They allow you to create a separate line of development that can be worked on independently of the main branch. This can be useful when you want to make changes to a project without affecting the main branch.
+
+we make a seperate branch other than the main branch so that whatever we do does not affect the main branch even if it means deleting the entire code.
+
+### to check the branch
+```
+git branch
+```
+
+### to create a new branch
+
+```
+git branch branch-name
+```
+
+now if we use git branch we will still be in the master branch because we have only created a new branch but we have not switched from the current branch.
+
+### to switch
+
+```
+git switch branch-name
+```
+
+now if we see the branch then our branch would have been switched form master to the new branch that we created.
+
+after we swtich back to the master branch the changes and added files that we made in our new branch will be not visible as it was not done in this timeline, branches can be understood as diffrent timelines.
+
+
+### To switch and create a new branch at same time
+
+```
+git switch -c branch-name
+```
+
+### to switch to a branch if it exits
+
+this is a safer way to switch branches as in the earlier command if we give any typos then we would create a new branch which we don't want so this command switches as to a branch that we specify if it exits.
+
+```
+git checkout dark-mode
+```
+
+
+! This all switching creating process can be directly viewed in the head folder of the .git folder.
+
+git graph extnesion can be used for a easy and visual representation of branches.
+
+## head in git
+
+The HEAD is a pointer to the current branch that you are working on. It points to the latest commit in the current branch. When you create a new branch, it is automatically set as the HEAD of that branch.
+
+before swtiching to our new branch the head was pointing to the master branch but now it would have been pointing on the new branch.
+
+## merging branches in git
+
+### Fast-forward merge
+
+Get to the branch on which you want to merge the new branch to, ex:- 
+on master branch I want to merge bug-fix branch
+```
+git merge bug-fix
+```
+
+### Not-fast forward merge
+
+In this type of merge, the master branch also worked and have some commits that are not in the bug-fix branch. This is a not fast-forward merge.
+
+in this type of merge you also have to give a message along with merging both the branches.
+
+
+```
+git merge bug-fix
+```
+
+~The message given here is mentioned as an extra commit in the repo.
+
+If the command are same, what is the difference between fast-forward and not fast-forward merge?
+
+The difference is resolving the conflicts. In a fast-forward merge, there are no conflicts. But in a not fast-forward merge, there are conflicts, and there are no shortcuts to resolve them. You have to manually resolve the conflicts. Decide, what to keep and what to discard. VSCode has a built-in merge tool that can help you resolve the conflicts.
