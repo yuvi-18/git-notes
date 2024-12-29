@@ -575,53 +575,63 @@ The git stash clear command is used to remove all stashes from the stash list at
 !In all the commands if you don't specify the stash then it would be applied on the most recent stash.
 
 
-Git Tags
+## Git Tags
+!generally not used by developers
 Tags are a way to mark a specific point in your repository. They are useful when you want to remember a specific version of your code or when you want to refer to a specific commit. Tags are like sticky notes that you can attach to your commits.
 
-Creating a tag
+### Creating a tag
 You can create a tag using the following command:
 
-Terminal window
+```
 git tag <tag-name>
+```
 
 This command creates a new tag with the specified name. The tag will be attached to the current commit.
 
-Create an annotated tag
+### Create an annotated tag
 You can create an annotated tag using the following command:
 
-Terminal window
+```
 git tag -a <tag-name> -m "Release 1.0"
+```
 
 This command creates an annotated tag with the specified name and message. The tag will be attached to the current commit.
 
-List all tags
+### List all tags
 You can list all tags using the following command:
 
-Terminal window
+```
 git tag
+```
 
 This command lists all the tags in your repository.
 
-Tagging a specific commit
+### Tagging a specific commit
 You can tag a specific commit using the following command:
 
-Terminal window
+```
 git tag <tag-name> <commit-hash>
+```
 
-Push tags to remote repository
+### Push tags to remote repository
 You can push tags to a remote repository using the following command:
 
-Terminal window
+```
 git push origin <tag-name>
+```
 
-Delete a tag
+### Delete a tag
 You can delete a tag using the following command:
 
-Terminal window
+```
 git tag -d <tag-name>
+```
 
-Delete tag on remote repository
+### Delete tag on remote repository
 You can delete a tag on a remote repository using the following command:
 
-Terminal window
+```
 git push origin :<tag-name>
+```
+
+
