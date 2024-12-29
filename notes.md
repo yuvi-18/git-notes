@@ -68,6 +68,7 @@ code .
 pwd :- present working directory
 ls:- list the files and directories in the current working directory
 cd foldername/ :- to change current directory
+clear:- to clear the view
 
 ### To check for the version 
 
@@ -130,4 +131,75 @@ git status
 To stage all the files together
 ```
 git add .
+
+
+
+output:- 
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   file.txt
+        new file:   file2.txt
 ```
+
+Currently our files are in staging area, this means that we have not yet committed the changes but are ready to be committed.
+
+
+
+## Commit
+
+Here we are committing the changes to the repository. We can see that the changes are now committed to the repository.
+
+
+```
+git commit -m "commit message"
+git status
+
+
+
+$ git commit -m "first commit"
+[master (root-commit) 24592ad] first commit
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file.txt
+ create mode 100644 file2.txt
+```
+
+
+## git log
+
+This command will show you the history of your repository. It will show you all the commits that were made to the repository.
+
+```
+git log
+
+
+
+commit 49b9c31dda6bd7d1dff98de36cf4498927bf202b (HEAD -> master)
+Author: Yuvraj <fcyuvraj18@gmail.com>
+Date:   Sun Dec 29 10:12:29 2024 +0530
+
+    modified
+
+commit 24592ad97c313c9f7948de64237bb6a354f7807f
+Author: Yuvraj <fcyuvraj18@gmail.com>
+Date:   Sun Dec 29 10:08:20 2024 +0530
+
+    first commit
+```
+
+
+
+to only see the commit message 
+```
+git log --online
+
+
+49b9c31 (HEAD -> master) modified
+24592ad first commit
+```
+
+
