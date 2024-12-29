@@ -99,7 +99,7 @@ git init
 clone the repo and all its code to your local device.
 
 ```
-git clone
+git clone https://github.com/username/repository.git
 ```
 
 ## to see hidden folders 
