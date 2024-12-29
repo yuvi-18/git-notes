@@ -68,7 +68,9 @@ code .
 pwd :- present working directory
 ls:- list the files and directories in the current working directory
 cd foldername/ :- to change current directory
+cd .. :- to change to previous directory
 clear:- to clear the view
+touch example.txt :- make a new file inside a folder
 
 ### To check for the version 
 
@@ -242,3 +244,57 @@ if you add a empty folder like images and then use git status it won't show you 
 /images    // folder
   .gitkeep // file
 ```
+
+
+# git behind the schenes
+(only for info purpous this is not used or asked anywhere)
+
+
+## Commit behidn the schenes
+
+when an commit is made, a sha id(hash) is generated which keeps the info of the commit and the info of the parent commit, commits are dependent on the parent commit.
+
+```
+hash 
+parent:-
+info
+```
+
+every commit id is unique.
+
+## git as a snapshot
+A git snapshot is a point in time in the history of your code. It represents a specific version of your code, including all the files and folders that were present at that time. Each snapshot is identified by a unique hash code, which is a string of characters that represents the contents of the snapshot.
+here snapshot is a loose term and not exactly means tkaing and storing a snapshot of the code.
+
+## commit object
+
+Each commit in the project is stored in .git folder in the form of a commit object. A commit object contains the following information:
+
+Tree Object
+Parent Commit Object
+Author
+Committer
+Commit Message
+
+## tree object
+
+Tree Object is a container for all the files and folders in the project. It contains the following information:
+
+File Mode
+File Name
+File Hash
+Parent Tree Object
+
+Everything is stored as key-value pairs in the tree object. The key is the file name and the value is the file hash.
+
+## blob object
+
+Blob Object is present in the tree object and contains the actual file content. This is the place where the file content is stored.
+
+ex:-
+```js
+function clicked(){
+    console.log("I was clicked")
+}
+```
+
