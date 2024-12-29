@@ -382,5 +382,42 @@ git merge bug-fix
 
 If the command are same, what is the difference between fast-forward and not fast-forward merge?
 
-The difference is resolving the conflicts. In a fast-forward merge, there are no conflicts. But in a not fast-forward merge, there are conflicts, and there are no shortcuts to resolve them. You have to manually resolve the conflicts. Decide, what to keep and what to discard. VSCode has a built-in merge tool that can help you resolve the conflicts.
+The difference is resolving the conflicts. In a fast-forward merge, there are no conflicts. But in a not fast-forward merge, there are conflicts, and there are no shortcuts to resolve them. You have to manually resolve the conflicts. Decide, what to keep and what to discard.
 
+
+## managing conflicts
+
+There is no magic button to resolve conflicts. You have to manually resolve the conflicts. Decide, what to keep and what to discard.
+
+in vs it is easy to solve conficts as it highlights the changes from the branch you are merging content from and gives you options like accept changes, decline etc.
+
+```
+<<<<<<< HEAD
+added marketing section in the master branch
+footer note :-
+2025 is coming
+======
+footer note 
+gta 6 is coming
+>>>>>>> bug-fix
+```
+
+if i click on accept current change which was the change i made in the branch that i am currently on then to proceed further first i will abort the merge req.
+
+```
+git merge --abort
+
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   file2.txt
+
+```
+
+so when manual fixing the file we jsut have to delete the portion of the code that we don't want and then all the arrows, then we'll just git add the modified file and commit it.
+
+just like this we have manually merged conflicts.
