@@ -168,6 +168,15 @@ $ git commit -m "first commit"
  create mode 100644 file2.txt
 ```
 
+git offers:- Atomic commits
+Atomic commits are a way to make sure that each commit is a self-contained unit of work. This means that if one commit fails, you can always go back to a previous commit and fix the issue. This is important for maintaining a clean and organized history in your repository.
+
+example:- 
+
+An unit of work for someone could be like making a footer.
+
+commit messages are generally present tense and imperative like instead of added footer one should write add footer.
+
 
 ## git log
 
@@ -202,4 +211,34 @@ git log --online
 24592ad first commit
 ```
 
+! these small options like "--oneline" are called flags in git.
 
+## Change existing code editor 
+
+```
+git config --global core.editor "code --wait"
+```
+
+Useful in a case like when u commit without giving any message git will open a folder in your code editor and then you can write the messaage there, after writing the message save and then close the folder, the commits would be saved now.
+
+## git ignore
+
+Gitignore is a file that tells git which files and folders to ignore. It is a way to prevent git from tracking certain files or folders. 
+
+to use this :-
+
+make a .gitignore folder and list all the files to be ignored there :-
+```
+.env
+anyfile
+```
+
+## git keep
+
+sometimes we want some empty folders to be there in the repo but git deosn't track the empty folders, ex:- 
+if you add a empty folder like images and then use git status it won't show you the images folder as it is empty as of now, so to keep those folders we keep a .gitkeep file in the folder.
+
+```
+/images    // folder
+  .gitkeep // file
+```
