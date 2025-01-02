@@ -1,3 +1,11 @@
+git pull origin
+git checkout -b new-branch-name
+git switch -c branch-name
+git commit -am "a commit message"
+git reset --hard HEAD
+git push --force origin branch-name
+
+
 # git 
 
 git is a version control system software which tracks changes in your code. it is free and open source software that is available on windows, macOS and linux.(works as checkpoints to for our code).
