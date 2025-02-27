@@ -705,3 +705,70 @@ Azure Repos
 Gitea
 
 But mainstream popular tool these days is Github.
+
+
+### Check remote url setting
+You can check the remote url setting by running the following command:
+
+```
+git remote -v
+```
+
+This will show you the remote url of your repository.
+
+### Add remote repository
+You can add a remote repository by running the following command:
+
+```
+git remote add origin <remote-url>
+```
+
+Here <remote-url> is the url of the remote repository that you want to add and origin is the name of the remote repository. This origin is used to refer to the remote repository in the future.
+
+```
+git remote add origin https://github.com/hiteshchoudhary/chai-something.git
+```
+
+### Push code to remote repository
+
+```
+git push -u origin main
+```
+
+This will set up an upstream remote and push your code to the remote repository.
+
+## Get code from remote repository
+There are two ways to get code from a remote repository:
+
+fetch the code
+
+pull the code
+
+
+Fetch the code means that you are going to download the code from the remote repository to your local repository.
+Pull the code means that you are going to download the code from the remote repository and merge it with your local repository.
+
+git pull = git fetch + git merge 
+
+
+### Fetch code
+To fetch code from a remote repository, you can use the following command:
+
+```
+git fetch <remote-name>
+```
+
+
+Here <remote-name> is the name of the remote repository that you want to fetch from.
+
+
+### Pull code
+To pull code from a remote repository, you can use the following command:
+
+
+git pull <remote-name> <branch-name>
+```
+git pull origin main
+```
+
+Here <remote-name> is the name of the remote repository that you want to pull from and <branch-name> is the name of the branch that you want to pull.
