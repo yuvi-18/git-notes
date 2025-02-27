@@ -3,7 +3,7 @@ git checkout -b new-branch-name
 git switch -c branch-name
 git commit -am "a commit message"
 git reset --hard HEAD
-git push --force origin branch-name
+git push --force origin branch-name 
 
 
 # git 
@@ -643,3 +643,65 @@ git push origin :<tag-name>
 ```
 
 
+# Git rebase and reflog
+
+## Git rebase
+
+Git rebase is a powerful Git feature used to change the base of a branch. It effectively allows you to move a branch to a new starting point, usually a different commit, by “replaying” the commits from the original base onto the new base. This can be useful for keeping a cleaner, linear project history.
+
+faaltu je commits na show ho jese jab merge karte hain branch tab ek faaltu ka commit message aa jaata hai merge ka wese message na aaye isliye git rebase use kar sakte.
+
+it is suggested that jo master ya main branch hai usko rebase na karo, kisi or branch ko rebase karo
+
+Ensure you are on the branch you want to rebase:
+
+```
+git branch 
+
+*purple mode 
+
+
+git rebase master
+```
+
+koi additinal commit nhi aayega   
+
+
+## Git reflog 
+
+poori history
+
+Git reflog is a command that shows you the history of your commits. It allows you to see the changes that you have made to your repository over time. This can be useful for debugging and understanding the history of your project.
+
+
+specific commit kek liye 
+
+```
+git reflog <commit-hash>
+```
+
+### Git commit recover using reflogs
+
+If you accidentally deleted a branch or made changes that are no longer visible in the commit history, you can often recover them using the reflog. First, find the reference to the commit where the branch or changes existed, and then reset your branch to that reference. 
+
+iss commit id tak thik tha toh wo mention karo toh utne tak reset ho jayega.
+
+```
+git reflog <commit-hash>
+git reset --hard <commit-hash>
+
+```
+
+
+# Github
+
+Github is a web-based Git repository hosting service. It is a popular platform for developers to collaborate on projects and to share code. Github provides a user-friendly interface for managing and tracking changes to your code, as well as a platform for hosting and sharing your projects with others.
+
+Some other alternative of Github are:
+
+Gitlab
+Bitbucket
+Azure Repos
+Gitea
+
+But mainstream popular tool these days is Github.
