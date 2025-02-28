@@ -95,6 +95,14 @@ to know if the pwd is a repo or not
 git status
 ```
 
+for a short method of finding the changes: - 
+
+``` 
+git status -s
+
+here green reoresent staging area, red stands for modified in working tree.
+```
+
 ## initialise 
 
 initialise a empty git repo in that folder.
@@ -188,6 +196,30 @@ An unit of work for someone could be like making a footer.
 commit messages are generally present tense and imperative like instead of added footer one should write add footer.
 
 
+
+
+## Return to last commit 
+
+to return the data from your file to the previous commit:
+
+``` 
+git checkout <name of folder>
+```
+
+
+to restore the previous data for all the files according to the last commit
+
+```
+git checkout -f
+```
+
+
+## Relmove the last added commit 
+
+```
+git rm --cached <fileName>
+```
+
 ## git log
 
 This command will show you the history of your repository. It will show you all the commits that were made to the repository.
@@ -225,6 +257,28 @@ git log --online
 
 ! if lag occurs press q to exit.
 
+to check certain numbers of commit logs
+
+```
+git log -p -1
+```
+
+
+## git diff
+
+To check the difference between the staging area and the code 
+
+```
+git diff
+```
+
+To check the difference between the staging area and the last commit 
+
+```
+git diff --staged 
+```
+
+
 ## Change existing code editor 
 
 ```
@@ -243,6 +297,32 @@ make a .gitignore folder and list all the files to be ignored there :-
 ```
 .env
 anyfile
+```
+
+make the gitignore file form the terminal to aboid any errors 
+
+```
+touch .gitignore
+```
+
+to ignore only the folder which is in the same directory as the git ignore file and not in any folder use /. otherwise gitignore will ignore all the files with the name given no mater where it is :-
+
+```
+/mylogs.log
+```
+
+
+to ignore all the files with the specific type use *
+
+```
+*.log
+*.cpp
+```
+
+to ignore a folder write inside the gitignore file :- 
+
+```
+anyfolder/
 ```
 
 ## git keep
