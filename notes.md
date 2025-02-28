@@ -1,11 +1,3 @@
-git pull origin
-git checkout -b new-branch-name
-git switch -c branch-name
-git commit -am "a commit message"
-git reset --hard HEAD
-git push --force origin branch-name 
-
-
 # git 
 
 git is a version control system software which tracks changes in your code. it is free and open source software that is available on windows, macOS and linux.(works as checkpoints to for our code).
@@ -196,9 +188,16 @@ An unit of work for someone could be like making a footer.
 commit messages are generally present tense and imperative like instead of added footer one should write add footer.
 
 
+## commit add together 
 
+```
+git commit -am "Your commit message"
+```
 
 ## Return to last commit 
+
+This will only revert back the modified tracked files that aren't staged yet.
+It will not touch staging area (the index) or reset anything in your commit history.
 
 to return the data from your file to the previous commit:
 
@@ -213,8 +212,17 @@ to restore the previous data for all the files according to the last commit
 git checkout -f
 ```
 
+## Return Everything to the last commit 
 
-## Relmove the last added commit 
+It will discard both staged and unstaged changes in your working directory and index, resetting everything to the state of the last commit (HEAD).
+This is a destructive operation—your changes (both staged and unstaged) will be lost.
+
+```
+git reset --hard HEAD
+```
+
+
+## Remove the last added commit 
 
 ```
 git rm --cached <fileName>
@@ -413,6 +421,11 @@ now if we use git branch we will still be in the master branch because we have o
 
 ```
 git switch branch-name
+
+or 
+
+git checkout branch-name
+
 ```
 
 now if we see the branch then our branch would have been switched form master to the new branch that we created.
@@ -420,24 +433,17 @@ now if we see the branch then our branch would have been switched form master to
 after we swtich back to the master branch the changes and added files that we made in our new branch will be not visible as it was not done in this timeline, branches can be understood as diffrent timelines.
 
 
+! This all switching creating process can be directly viewed in the head folder of the .git folder.
+
+git graph extnesion can be used for a easy and visual representation of branches.
+
+
+
 ### To switch and create a new branch at same time
 
 ```
 git switch -c branch-name
 ```
-
-### to switch to a branch if it exits
-
-this is a safer way to switch branches as in the earlier command if we give any typos then we would create a new branch which we don't want so this command switches as to a branch that we specify if it exits.
-
-```
-git checkout dark-mode
-```
-
-
-! This all switching creating process can be directly viewed in the head folder of the .git folder.
-
-git graph extnesion can be used for a easy and visual representation of branches.
 
 ## head in git
 
@@ -455,12 +461,17 @@ on master branch I want to merge bug-fix branch
 git merge bug-fix
 ```
 
+to merge master branch into another branch run 
+
+```
+git merge master
+```
+
 ### Not-fast forward merge
 
 In this type of merge, the master branch also worked and have some commits that are not in the bug-fix branch. This is a not fast-forward merge.
 
 in this type of merge you also have to give a message along with merging both the branches.
-
 
 ```
 git merge bug-fix
@@ -523,6 +534,13 @@ git branch -m master main
 git branch -d <branch-name>
 ```
 
+## pull the latest branch
+
+to pull the latest branch into the master branch 
+
+```
+git pull origin
+```
 
 # diff, stash amd tags
 
@@ -796,6 +814,11 @@ git remote -v
 
 This will show you the remote url of your repository.
 
+
+### ssh keys
+
+to give the permission of your local device to modify the repository of your github account you need to generate the ssh keys and paste it into your local device. the guide to this is given on the official github webite just go to gihub > settings > generate ssh and gpg keys or ["[click here](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)"]
+
 ### Add remote repository
 You can add a remote repository by running the following command:
 
@@ -815,7 +838,20 @@ git remote add origin https://github.com/hiteshchoudhary/chai-something.git
 git push -u origin main
 ```
 
-This will set up an upstream remote and push your code to the remote repository.
+This will set up an upstream remote and push your code to the remote repository. by upstream now you can just write git push and it will already know orgin and main.
+
+## Hard push
+
+```
+git push --force origin <branchName>
+```
+
+This command pushes changes to the remote main branch, but it forces the push, even if it would overwrite changes on the remote branch.
+
+Effect:
+The --force flag forces the push to the remote repository, even if it would result in overwriting commits on the remote main branch that are not present in your local branch.
+
+This can be dangerous because it rewrites history on the remote branch, potentially causing loss of commits or work that others have pushed to the same branch.
 
 ## Get code from remote repository
 There are two ways to get code from a remote repository:
@@ -852,3 +888,5 @@ git pull origin main
 ```
 
 Here <remote-name> is the name of the remote repository that you want to pull from and <branch-name> is the name of the branch that you want to pull.
+
+the best way to use this is by first switching to the master branch and updating it to the latest version of the origin and then switching back to your local branch on which you were working on and updating it.
