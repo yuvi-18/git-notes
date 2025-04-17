@@ -71,6 +71,7 @@ cd foldername/ :- to change current directory
 cd .. :- to change to previous directory
 clear:- to clear the view
 touch example.txt :- make a new file inside a folder
+mkdir "folder name" :- to create a folder
 
 ### To check for the version 
 
